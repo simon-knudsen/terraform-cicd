@@ -1,8 +1,8 @@
 terraform {
   required_version = ">= 0.12"
   backend "s3" {
-    bucket = "myapp-tf-s3-bucket"
-    key = "myapp/state.tfstate"
+    bucket = "simonknudsen-myapp-tf-state"
+    key = "simonknudsen-myapp/state.tfstate"
     region = "eu-central-1"
   }
 }

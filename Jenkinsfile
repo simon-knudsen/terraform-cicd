@@ -2,18 +2,18 @@
 
 library identifier: 'jenkins-shared-library@master', retriever: modernSCM(
   [$class: 'GitSCMSource',
-  remote: 'https://gitlab.com/twn-devops-bootcamp/latest/12-terraform/jenkins-shared-library.git',
-  credentialsId: 'gitlab-credentials'
+  remote: 'https://github.com/simon-knudsen/jenkins-shared-library.git',
+  credentialsId: 'github-credentials'
   ]
 )
 
 pipeline {   
   agent any
   tools {
-    maven 'Maven'
+    maven 'maven-3.10'
   }
   environment {
-    IMAGE_NAME = 'nanatwn/demo-app:java-maven-2.0'
+    IMAGE_NAME = 'simonknudsen7/demo-app:java-maven-2.0'
   }
   stages {
     stage("build app") {
@@ -37,7 +37,7 @@ pipeline {
     stage("provision server") {
       environment {
         AWS_ACCESS_KEY_ID = credentials('jenkins_aws_access_key_id')
-        AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws_secret_access_key')
+        AWS_SECRET_ACCESS_KEY = credentials('jenkins_aws_secret_access_key')
         TF_VAR_env_prefix = 'test'
       }
       steps {

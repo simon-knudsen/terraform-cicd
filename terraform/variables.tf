@@ -11,13 +11,13 @@ variable env_prefix {
   default = "dev"
 }
 variable my_ip {
-  default = "85.246.32.98/32"
+  default = "212.10.148.130/32"
 }
 variable jenkins_ip {
-  default = "165.232.114.245/32"
+  default = "159.65.89.193/32"
 }
 variable instance_type {
-  default = "t2.micro"
+  default = "t3.micro"
 }
 variable region {
   default = "eu-central-1"
